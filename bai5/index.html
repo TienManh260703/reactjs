@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   function tinhTong(a, b) {
+      //     return a + b;
+      //   }
+
+      //  let ketQua = tinhTong(10, 20)
+      //  console.log(ketQua)
+      // sử dụng    arguments
+      //   function tinhTong2() {
+      //     // console.log(arguments);
+      //     // argument : chỉ được sử dụng trong hàm
+
+      //     let tong = 0;
+      //     for (item of arguments) {
+      //       tong += item;
+      //       console.log(item);
+      //     }
+      //     return tong;
+      //   }
+
+      //   let ketQua = tinhTong2(12, 12, 12, 12, 35, 654);
+      //   console.log("Kết quả : "+ketQua);
+
+      // + arrow function
+
+      //   var tinhTong = (...arr) => {
+      //     console.log("oke");
+      //     console.log(arr);
+      //     let tong = 0;
+      //     for (item of arr) {
+      //       tong += item;
+      //     }
+      //     return tong;
+      //   };
+
+      //   let ketQua = tinhTong(12, 14, 5654, 12, 46);
+      //   console.log(ketQua);
+
+      // let arr2 = [12, 14];
+
+      // var chanLe = (...arr) => {
+      //   let tong = 0;
+      //   for (const item of arr) {
+      //       console.log("B");
+
+      //     if (item % 2 == 0) {
+      //       console.log("A");
+      //       tong += item;
+      //     }
+      //   }
+      //   return tong;
+      // };
+      // let ketQua = chanLe(arr2);
+      // console.log(ketQua);
+    </script>
+
+    <!-- Nâng cao với mảng -->
+    <script>
+      const monHoc = [
+        {
+          ten: "Toán",
+          diem: 10,
+        },
+        {
+          ten: "Lý",
+          diem: 5,
+        },
+        {
+          ten: "Hóa",
+          diem: 9.2,
+        },
+        {
+          ten: "Sinh",
+          diem: 8.9,
+        },
+        {
+          ten: "Văn",
+          diem: 4.8,
+        },
+        {
+          ten: "Tin",
+          diem: 7.5,
+        },
+        {
+          ten: "Tin",
+          diem: 8.6,
+        },
+      ];
+
+      // forEach ko dùng return được
+      // + every = tất cả
+      const hocSinhGioi = monHoc.every(function (item) {
+        // Sử dụng gì thì chuyển cái đó vòa full (item , index , arr)
+        return item.diem >= 8.5;
+      });
+      console.log(hocSinhGioi);
+      if (hocSinhGioi) {
+        console.log("every : Có học sinh giỏi");
+      } else {
+        console.log("every : Không có học sinh giỏi");
+      }
+
+      // + some : Chỉ cần 1 cái đúng là sẽ trả về true
+      const hocSinhGioi2 = monHoc.some(function (item) {
+        return item.diem > 8.5;
+      });
+      if (hocSinhGioi2) {
+        console.log("Some : Học sinh giởi");
+      } else {
+        console.log("Some : Không có học sinh giỏi");
+      }
+      // + find
+      // + Chỉ tìm được 1 phần tử , tìm được trả về luôn ko tìm được trả về undefined
+
+      const xemDiemTin = monHoc.find(function (item) {
+        return item.ten == "Tin";
+      });
+      console.log(xemDiemTin);
+
+      if (xemDiemTin) {
+        console.log("+ Điểm tin của bạn là : " + xemDiemTin.diem);
+      } else {
+        console.log("Không tìm thấy");
+      }
+
+      // + filter
+      // + Tìm và trả về 1 nhiều phần tử (mảng)
+
+      const timDiemTinAll = monHoc.filter(function (item) {
+        return item.ten == "Tin";
+      });
+      if (timDiemTinAll) {
+        console.log("+ Có môn học bạn cần tim : đây là kết quả");
+        console.log(timDiemTinAll);
+      } else {
+        console.log("+ Không có môn học bạn cần tìm");
+      }
+
+
+      // + map
+      // + Trả về 1 mảng mới với số lượng phần tử bằng mảng cũ
+      // + Nhưng giá trị có thể khác quyết định bởi return
+
+      
+    </script>
+  </body>
+</html>
